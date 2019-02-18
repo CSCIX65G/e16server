@@ -6,9 +6,10 @@
             "request": "launch",
             "name": "Remote Debug",
             "program": "${workspaceFolder}/.build/aarch64-unknown-linux/debug/e16server",
+            "env": {
+                "LD_LIBRARY_PATH" : "/usr/lib/swift/linux"
+            },
             "initCommands": [
-                "env LD_LIBRARY_PATH=/usr/lib/swift/linux",
-                "file ${workspaceFolder}/.build/aarch64-unknown-linux/debug/e16server",
                 "platform select remote-linux",
                 "platform connect connect://192.168.0.15:8081"
             ],            
