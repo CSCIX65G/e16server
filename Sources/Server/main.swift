@@ -6,7 +6,9 @@ import HeliumLogger
 import LoggerAPI
 import Service
 
-typealias HandlerSelector = StandardSmokeHTTP1HandlerSelector<ApplicationContext, JSONPayloadHTTP1OperationDelegate>
+typealias SmokeHandlerSelector = StandardSmokeHTTP1HandlerSelector
+typealias JSONDelegate = JSONPayloadHTTP1OperationDelegate
+typealias HandlerSelector = SmokeHandlerSelector<ApplicationContext, JSONDelegate>
 
 let logger = HeliumLogger()
 Log.logger = logger
@@ -26,7 +28,7 @@ func createHandlerSelector() -> HandlerSelector {
 }
 
 do {
-    Log.info("Starting AdminServer")
+    Log.info("Starting Server")
     try SmokeHTTP1Server.startAsOperationServer(
         withHandlerSelector: createHandlerSelector(),
         andContext: ApplicationContext()

@@ -1,0 +1,21 @@
+{
+    "version": "5.0.0",
+    "tasks": [
+        // compile your SPM project
+        {
+            "label": "swift-build",
+            "type": "shell",
+            "command": "swift build --destination ~/Development/crosscompile/cross-toolchain/arm64v8-hypriot-stretch-destination.json"
+        },
+        // compile your SPM tests
+        {
+            "label": "swift-build-tests",
+            "type": "process",
+            "command": "swift",
+            "group": "build",
+            "args": [
+                "build",
+                "--build-tests"
+            ]
+        }
+}
