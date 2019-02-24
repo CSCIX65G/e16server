@@ -11,7 +11,7 @@
             },
             "initCommands": [
                 "platform select remote-linux",
-                "platform connect connect://192.168.0.15:8081"
+                "platform connect connect://192.168.1.214:9293"
             ],            
             "args": [],
             "cwd": "${workspaceFolder}"
