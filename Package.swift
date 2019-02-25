@@ -11,19 +11,20 @@ let package = Package(
                     "Service",
                     "EchoService",
                     "Server",
-                  ]
+		  ]
       ),
       .library(name: "Service", targets: ["Service"]),
       .library(name: "EchoService", targets: ["EchoService", "Service"]),
     ],
     dependencies: [
         .package(url: "https://github.com/CSCIX65G/smoke-framework.git", .branch("swift5")),
+	.package(url: "https://github.com/AlwaysRightInstitute/Shell.git", from: "0.1.4"),
         .package(url: "https://github.com/IBM-Swift/HeliumLogger.git", .branch("master"))
     ],
     targets: [
         .target(
             name: "Server",
-            dependencies: ["Service", "EchoService", "HeliumLogger"]),
+            dependencies: ["Service", "EchoService", "HeliumLogger", "Shell"]),
         .target(
             name: "EchoService",
             dependencies: ["Service", "SmokeOperations", "SmokeHTTP1", "SmokeOperationsHTTP1"]),

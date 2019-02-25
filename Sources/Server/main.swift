@@ -5,6 +5,7 @@ import NIOHTTP1
 import HeliumLogger
 import LoggerAPI
 import Service
+import Shell
 
 typealias SmokeHandlerSelector = StandardSmokeHTTP1HandlerSelector
 typealias JSONDelegate = JSONPayloadHTTP1OperationDelegate
@@ -29,6 +30,7 @@ func createHandlerSelector() -> HandlerSelector {
 
 do {
     Log.info("Starting Server")
+    Log.info("Verifying shell availability.  Hostname = \(shell.hostname())")
     try SmokeHTTP1Server.startAsOperationServer(
         withHandlerSelector: createHandlerSelector(),
         andContext: ApplicationContext()
